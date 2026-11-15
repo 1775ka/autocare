@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoCare Management System</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
+</head>
+<body>
+
+<header>
+    <h1>🚘 AutoCare</h1>
+    <span>Vehicle Service Management System</span>
+</header>
+
+<main class="container">
+
+    <h2>Dashboard Overview</h2>
+
+    <section class="stats">
+        <div class="stat-card">
+            <p>Total Bookings</p>
+            <h2 id="total">0</h2>
+        </div>
+
+        <div class="stat-card">
+            <p>Pending Services</p>
+            <h2 id="pending">0</h2>
+        </div>
+
+        <div class="stat-card">
+            <p>Completed Services</p>
+            <h2 id="completed">0</h2>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2>Book a Vehicle Service</h2>
+
+        <form id="bookingForm">
+            <div class="form-grid">
+
+                <div>
+                    <label for="customer">Customer Name</label>
+                    <input type="text" id="customer"
+                        placeholder="Enter customer name"
+                        maxlength="80" required>
+                </div>
+
+                <div>
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone"
+                        placeholder="03XXXXXXXXX"
+                        pattern="[0-9+() -]{7,20}"
+                        maxlength="20" required>
+                </div>
+
+                <div>
+                    <label for="vehicle">Vehicle Name</label>
+                    <input type="text" id="vehicle"
+                        placeholder="Honda Civic, Toyota Corolla..."
+                        maxlength="80" required>
+                </div>
+
+                <div>
+                    <label for="registration">Vehicle Registration Number</label>
+                    <input type="text" id="registration"
+                        placeholder="ABC-123"
+                        maxlength="20" required>
+                </div>
+
+                <div>
+                    <label for="service">Service Type</label>
+                    <select id="service" required>
+                        <option value="">Select Service</option>
+                        <option>Oil Change</option>
+                        <option>Engine Repair</option>
+                        <option>Car Wash</option>
+                        <option>Brake Repair</option>
+                        <option>Tyre Replacement</option>
+                        <option>General Maintenance</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="date">Service Date</label>
+                    <input type="date" id="date" required>
+                </div>
+
+            </div>
+
+            <button type="submit">+ Add Booking</button>
+            <p id="formMessage" class="form-message" role="status"></p>
+        </form>
+    </section>
+
+    <section class="panel">
+        <h2>Service Records</h2>
+
+        <input class="search" type="search" id="search"
+            placeholder="Search customer, phone, vehicle or service...">
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Customer</th>
+                        <th>Phone</th>
+                        <th>Vehicle</th>
+                        <th>Registration</th>
+                        <th>Service</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="records"></tbody>
+            </table>
+
+            <p id="emptyMessage" class="empty-message" hidden>
+                No service records found.
+            </p>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    AutoCare Management System | Student Software Project
+</footer>
+
+</body>
+</html>
